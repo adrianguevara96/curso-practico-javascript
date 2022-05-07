@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figuras Geométricas | Curso Práctico Javascript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --uno: 100%;
+            --trescuartos: 74.5%; 
+            --unmedio: 49.5%;
+            --untercio: 33.32%;
+            --uncuarto: 24.5%;
+            --ninety: 90%;
+            --fourty: 40%;
+            --thirty: 30%;
+        }
+
+        h1,h2,h3,h4, p {
+            text-align: center;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            /* background: url("./assets/pexels-elīna-arāja-3334452.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            opacity: 0.8; */
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-radius: 25px;
+        }
+
+        fieldset {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            padding: 0px 10px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        button {
+            border: 1px solid gray;
+            border-radius: 3px;
+        }
+
+        .containerPrincipal {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 300px);
+            gap: 25px;
+            margin: 0 25px;
+            justify-content: center;
+        }
+
+        .containerPrincipal section {
+            height: 320px;
+        }
+
+        .containerPrincipal section h2 {
+            margin: 0;
+        }
+
+        .containerPrincipal section form {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .containerPrincipal section form .buttons-cuadrado{
+            display: flex;
+        }
+        
+
+        .inputs-cuadrado,
+        .inputs-triangulo, 
+        .inputs-circulo {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: var(--uno);
+            height: 70%;
+        }
+
+        .buttons-cuadrado,
+        .buttons-triangulo,
+        .buttons-circulo {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: var(--uno);
+            height: 30%;
+        }
+
+        .buttons-cuadrado button,
+        .buttons-triangulo button,
+        .buttons-circulo button{
+            width: 25%;
+            height: 35px;
+            margin: 10px 10px;
+        }
+
+        .inputs-cuadrado label,
+        .inputs-triangulo label,
+        .inputs-circulo label {
+            width: var(--trescuartos);
+        }
+
+        .inputs-cuadrado input,
+        .inputs-triangulo input,
+        .inputs-circulo input {
+            width: var(--uncuarto);
+        }
+
+        .inputs-cuadrado .lados,
+        .inputs-triangulo .lados,
+        .inputs-triangulo .base,
+        .inputs-triangulo .altura,
+        .inputs-circulo .radio {
+            display: flex;
+            margin: 6px 0;
+            width: 100%;
+        }
+
+        .resultado {
+            width: 100%;
+            background: lightgray;
+            border-radius: 15px;
+            height: 22px;
+        }
+
+        .resultado label {
+            user-select: none;
+        }
+
+
+
+        /* ======================================== */
+
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .calculator {
+            width: 35%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: lightgray;
+            border-radius: 15px;
+        }
+
+        .calculator-header {
+            display: flex;
+            width: 85%;
+        }
+
+        .calculator-header h2{
+            width: 70%;
+            margin: 15px 10px 0 0px;
+        }
+
+        .calculator-header button {
+            margin: 15px 10px 0 0px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }
+
+        .calculator-pre-body {
+            border-radius: 5px;
+            border: 2px solid black;
+            height: 50px;
+            width: 85%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0 0 0;
+            background-color: rgb(252, 215, 113);
+        }
+
+        .calculator-body {
+            border-radius: 5px;
+            border: 2px solid black;
+            height: 400px;
+            width: 85%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0 30px 0;
+        }
+
+        .calculator-body-items {
+            display: grid;
+            grid-auto-flow: row;
+            width: 90%;
+            height: 100%;
+            align-items: center;
+        }
+
+        .calculator-body-items button {
+            margin: 5px;
+            height: 70%;
+            border-radius: 10px;
+        }
+
+        .calculator-body-items button:hover {
+            background: gray;
+        }
+
+        .calculator-body-items button:active {
+            background: burlywood;
+        }
+
+        .item-24 {
+            grid-column: 4;
+            /* De la fila 3 a la 5, arriba a abajo */
+            grid-row: 6 / 8;
+            height: 85% !important;
+        }
+
+        .item-25 {
+            /* De la columna 1 a la 3, izquierda a derecha */
+            grid-column: 1/3;
+            grid-row: 7;
+        }
+
+        .red {
+            background-color: rgba(231, 22, 22, 0.658);
+        }
+
+        .yellow {
+            background-color: rgba(255, 255, 0, 0.575);
+            }
+
+        .green {
+            background-color: rgba(0, 128, 0, 0.568);
+        }
+
+        @media screen and (max-width: 1024px){
+            .inputs-cuadrado .lados,
+            .inputs-triangulo .lados,
+            .inputs-triangulo .base,
+            .inputs-triangulo .altura,
+            .inputs-circulo .radio {
+                margin: 8px 0;
+            }
+
+            .containerPrincipal section {
+                height: 330px;
+            }
+        }
+
+        @media screen and (max-width: 1000px){
+
+            .calculator {
+                width: 70%;
+            }
+
+            .calculator-header {
+                width: 85%;
+            }
+
+            .inputs-cuadrado label, .inputs-triangulo label, .inputs-circulo label {
+                margin-right: 10px;
+            }
+        }
+
+        @media screen and (max-width: 700px){
+
+            button {
+                height: 40px;
+            }
+
+            .inputs-cuadrado, .buttons-cuadrado,
+            .inputs-triangulo, .buttons-triangulo,
+            .inputs-circulo, .buttons-circulo{
+                width: var(--uno);
+            }
+
+            .inputs-cuadrado input,
+            .inputs-triangulo input,
+            .inputs-circulo input {
+                margin: 5px 5px 0px 15px;
+            }
+
+            .buttons-cuadrado button,
+            .buttons-triangulo button{
+                width: var(--fourty);
+                margin: 10px 10px;
+            }
+
+            .buttons-circulo button {
+                width: var(--uncuarto);
+                margin: 10px 10px;
+            }
+
+            .inputs-cuadrado label,
+            .inputs-triangulo label,
+            .inputs-circulo label {
+                width: var(--unmedio);
+            }
+        }
+        
+        @media screen and (max-width: 650px){
+
+            .calculator {
+                width: 95%;
+            }□
+            .calculator-header {
+                width: 85%;
+            }
+
+            /* .item-1 span {
+                display: none;
+            }
+
+            .item-1:after {
+                content: '□';
+            } */
+
+            .containerPrincipal {
+                display: grid;
+                grid-template-columns: 1fr;
+                margin: 0 15px;
+            }
+
+            .containerPrincipal section {
+                height: 400px;
+            }
+
+            .inputs-cuadrado .lados, .inputs-triangulo .lados, .inputs-triangulo .base, .inputs-triangulo .altura, .inputs-circulo .radio {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Figuras Geométricas</h1>
+        <p>Primer taller del Curso Práctico de Javascript</p>
+    </header>
+
+    <div class="containerPrincipal">
+
+    <section class="cuadrado">
+        <form action="/">
+            <fieldset>
+                <legend><h2>Cuadrado</h2></legend>
+                    <div class="inputs-cuadrado">
+                        <div class="lados">
+                            <label for="inputCuadrado">¿Cuánto mide cada lado de tu cuadrado?</label>
+                            <input id="inputCuadrado" type="number"/>
+                        </div>
+                    </div>
+                    <div class="buttons-cuadrado">
+                        <div class="resultado">
+                            <label id="labelResultadoCuadrado"></label>
+                        </div>
+                        <button type="button" onclick="calcularPerimetroCuadrado()">
+                            Calcular Perímetro
+                        </button>
+                        <button type="button" onclick="calcularAreaCuadrado()">
+                            Calcular Área
+                        </button>
+                    </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="triangulo">
+        <form action="/">
+            <fieldset>
+                <legend><h2>Triángulo</h2></legend>
+                <div class="inputs-triangulo">
+                    <div class="lados">
+                        <label for="inputLadosTriangulo">¿Cuánto mide cada lado de tu triángulo?</label>
+                        <input id="inputLadosTriangulo" type="number"/>
+                    </div>
+                    <div class="base">
+                        <label for="inputBaseTriangulo">¿Cuánto mide la base de tu triángulo?</label>
+                        <input id="inputBaseTriangulo" type="number"/>
+                    </div>
+                    <div class="altura">
+                        <label for="inputAlturaTriangulo">¿Cuánto mide la altura de tu triángulo?</label>
+                        <input id="inputAlturaTriangulo" type="number"/>
+                    </div>
+                </div>
+
+                <div class="buttons-triangulo">
+                    <div class="resultado">
+                        <label id="labelResultadoTriangulo"></label>
+                    </div>
+                    <button type="button" onclick="calcularPerimetroTriangulo()">
+                        Calcular Perímetro
+                    </button>
+                    <button type="button" onclick="calcularAreaTriangulo()">
+                        Calcular Área
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="circulo">
+        <form action="/">
+            <fieldset>
+                <legend><h2>Círculo</h2></legend>
+                    <div class="inputs-circulo">
+                        <div class="radio">
+                            <label for="inputRadioCirculo">¿Cuánto mide el radio de tu círculo?</label>
+                            <input id="inputRadioCirculo" type="number"/>
+                        </div>
+                    </div>
+
+                    <div class="buttons-circulo">
+                        <div class="resultado">
+                            <label id="labelResultadoCirculo"></label>
+                        </div>
+                        <button type="button" onclick="calcularDiametroCirculo()">
+                            Calcular Diámetro
+                        </button>
+                        <button type="button" onclick="calcularPerimetroCirculo()">
+                            Calcular Perímetro
+                        </button>
+                        <button type="button" onclick="calcularAreaCirculo()">
+                            Calcular Área
+                        </button>
+                    </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="triangulo">
+
+        <form action="/">
+            <fieldset>
+                <legend><h2>Triángulo Isósceles</h2></legend>
+                <div class="inputs-triangulo">
+                    <div class="lados">
+                        <label for="inputLado1TrianguloIso">¿Cuánto mide el primer lado de tu triángulo?</label>
+                        <input id="inputLado1TrianguloIso" type="number"/>
+                    </div>
+                    <div class="base">
+                        <label for="inputLado2TrianguloIso">¿Cuánto mide el segundo lado de tu triángulo?</label>
+                        <input id="inputLado2TrianguloIso" type="number"/>
+                    </div>
+                    <div class="altura">
+                        <label for="inputBaseTrianguloIso">¿Cuánto mide la base de tu triángulo?</label>
+                        <input id="inputBaseTrianguloIso" type="number"/>
+                    </div>
+                </div>
+
+                <div class="buttons-triangulo">
+                    <div class="resultado">
+                        <label id="labelResultadoTrianguloIso"></label>
+                    </div>
+                    <button type="button" onclick="calcularPerimetroTrianguloIsosceles()">
+                        Calcular Perímetro
+                    </button>
+                    <button type="button" onclick="calcularAlturaTrianguloIsosceles()">
+                        Calcular Altura
+                    </button>
+                    <button type="button" onclick="calcularAreaTrianguloIsosceles()">
+                        Calcular Área
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    </div>
+
+
+
+
+    <!-- CALCULADORA -->
+    <br>
+    <section style="display: none">
+        <div class="container">
+            <div class="calculator">
+                <div class="calculator-header">
+                    <button class="red"></button>
+                    <button class="yellow"></button>
+                    <button class="green"></button>
+                    <h2 class="">Figuras Geometricas</h2>
+                </div>
+                <div class="calculator-pre-body">
+                    <span id="screenCalculator"></span>
+                    <span id="screenCalculator2"></span>
+                </div>
+                <div class="calculator-body">
+                    <div class="calculator-body-items">
+                        <button type="button" class="item-1" onclick="cuadrado('c')" id="cuadradoButton">
+                            <span id="cuadrado">Cuadrado</span>
+                        </button>
+                        <button class="item-2" id="trianguloButton">                           
+                            <span id="triangulo">Triangulo</span>
+                        </button>
+                        <button class="item-3" id="circuloButton">
+                            <span id="circulo">Circulo</span>
+                        </button>
+                        <button class="item-4" style="color: white; background: lightgray">
+                            .
+                        </button>
+                        <button class="item-5" style="color: white; background: lightgray"
+                            id="diametroButton">
+                            <span id="diametro">.</span>
+                        </button>
+                        <button class="item-6" style="color: white; background: lightgray"
+                            id="perimetroButton" onclick="perimetroOperation()">
+                            <span id="perimetro">.</span>
+                        </button>
+                        <button class="item-7" style="color: white; background: lightgray"
+                            id="areaButton">
+                            <span id="area">.</span>
+                        </button>
+                        <button class="item-8" style="color: white; background: lightgray">.</button>
+                        <button class="item-9" onclick="valueC('clear')">C</button>
+                        <button class="item-10" style="color: white; background: lightgray">.</button>
+                        <button class="item-11" onclick="valueC('/')">/</button>
+                        <button class="item-12" onclick="valueC('*')">x</button>
+                        <button class="item-13" onclick="valueC(7)">7</button>
+                        <button class="item-14" onclick="valueC(8)">8</button>
+                        <button class="item-15" onclick="valueC(9)">9</button>
+                        <button class="item-16" onclick="valueC('-')">-</button>
+                        <button class="item-17" onclick="valueC(4)">4</button>
+                        <button class="item-18" onclick="valueC(5)">5</button>
+                        <button class="item-19" onclick="valueC(6)">6</button>
+                        <button class="item-20" onclick="valueC('+')">+</button>
+                        <button class="item-21" onclick="valueC(1)">1</button>
+                        <button class="item-22" onclick="valueC(2)">2</button>
+                        <button class="item-23" onclick="valueC(3)">3</button>
+                        <button class="item-24" onclick="valueC('=')">=</button>
+                        <button class="item-25" onclick="valueC(0)">0</button>
+                        <button class="item-26" onclick="valueC('.')">.</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./figuras.js"></script>
+</body>
+</html>
