@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porcentajes y Descuentos | Curso Practico de Platzi</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url(./adrienolichon.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        section {
+            height: 100vh;
+            display: grid;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        fieldset {
+            border-radius: 10px;
+            background: rgba( 255, 255, 255, 0.65 );
+            box-shadow: 0 8px 32px 0 rgb(149 149 149 / 20%);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+
+        fieldset h4 {
+            text-align: center;
+        }
+
+        legend {
+            border-radius: 10px;
+            padding: 0 10px;
+            background: linear-gradient(rgba(255,255,255,0.7) 50%, transparent 0%);
+            border: transparent !important;
+            backdrop-filter: blur( 20px );
+            -webkit-backdrop-filter: blur( 20px );
+        }
+
+        .container{
+            display: grid;
+            gap: 26px;
+            place-content: center;
+        }
+
+        #resultPrice {
+            width: 100%;
+            background: lightgray;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #resultPrice::before {
+            content: 'El precio con descuento es $';
+        }
+
+        .sub-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        #resultPrice {
+            grid-column: 1/3;
+            grid-row: 7;
+        }
+
+        .buttons {
+            grid-column: 1/3;
+            text-align: center;
+        }
+
+        input, select, button {
+            margin: 5px 0;
+            border-radius: 10px;
+            border: none !important;
+            text-align: center;
+        }
+
+        button {
+            height: 30px;
+            background-color: #DCD9D4;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
+            background-blend-mode: soft-light,screen;
+        }
+
+        @media screen and (max-width: 800px){
+            #form {
+                margin: 20px;
+            }
+
+            .sub-container {
+                grid-template-columns: 50% 50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <section>
+        <div class="container">
+            <form id="form" action="/">
+                <fieldset>
+                    <legend><h2>Porcentajes y Descuentos</h2></legend>
+                    <h4>Calcula tus productos con descuento</h4>
+
+                    <div class="sub-container">
+                        <label for="price">Precio del producto </label>
+                        <input id="price" type="number">
+
+                        <label for="price">Tipo de descuento </label>
+                        <select name="discountSelect" id="discountSelect" onchange="selectChangeValue(discountSelect)">
+                            <option value="0" disabled selected>-- Seleccione --</option>
+                            <option value="1">Porcentual</option>
+                            <option value="2">Cupón</option>
+                        </select>
+                    
+
+        
+                    <div id="descuentoPorcentual" style="display: none;">
+                        <label for="discount">Descuento </label>
+                        <input id="discount" type="number">
+                    </div>
+        
+                    <div id="cupon" style="display: none;">
+                        <label for="couponDiscount">Cupón de descuento </label>
+                        <input id="couponDiscount" type="text">
+                    </div>
+        
+                    <div class="buttons">
+                        <p id="resultPrice"></p>
+                        <button type="button" onclick="calcularDescuento(price.value, discountSelect.value)">
+                            Calcular descuento
+                        </button>
+                    </div>    
+                    
+                </div>
+                    
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <script src="./descuentos.js"></script>
+</body>
+</html>
