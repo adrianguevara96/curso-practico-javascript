@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio, moda, mediana, media geométrica</title>
+    <style>
+
+        body{
+            margin: 0;
+            color: white;
+        }
+
+        section {
+            display: grid;
+            height: 100vh;
+        }
+
+        button, input {
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+
+        .container{
+            display: grid;
+            gap: 26px;
+            place-content: center;
+            justify-items: center;
+            background-image: url(./uzunov.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container .container2 .container2Body{
+            width: 100%;
+            display: flex;
+        }
+
+        .container .container2 .container2Body label {
+            width: 40%;
+            text-align: center;
+        }
+        .container .container2 .container2Body input {
+            width: 30%;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .container .container2 .container2Body button{
+            width: 30%;
+        }
+
+        .container .sub-container{
+            /* display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            min-width: 400px;
+            max-width: 400px; */
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .container .sub-container input{
+            margin: 3px 5px;
+        }
+
+        .container .alert{
+            margin: 10px 0px;
+        }
+
+        .buttons {
+            min-width: 400px;
+            max-width: 400px;
+        }
+
+        .buttons .operations {
+            text-align: center;
+        }
+
+        .container2{
+            border: 4px solid gainsboro;
+            background-color: #817b7bbc;
+            border-radius: 10px;
+            height: 450px;
+            width: 400px;
+            padding: 10px;
+            display: grid;
+            align-content: center;
+            justify-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="container2">
+                <div class="container2Body">
+                    <label for="list">Cantidad de números</label>
+                    <input id="list" type="number">
+                    <button onclick="createArray(list.value)">Generar</button>
+                </div>
+    
+                <div id="sub-container" class="sub-container">
+                </div>
+    
+                <div class="alert">
+                    <label id="alert"></label><br>
+                </div>
+                <div class="buttons">
+                    <fieldset>
+                        <legend>Operaciones</legend>
+                        <label id="result">Resultado: </label> <br><br>
+                        <div class="operations">
+                            <button onclick="calcOperation('prom')">Promedio</button>
+                            <button onclick="calcOperation('med')">Media</button>
+                            <button onclick="calcOperation('mod')">Moda</button>
+                            <button onclick="calcOperation('medG')">Media Geo.</button>
+                        </div>
+                    </fieldset>
+    
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+    <script src="./promMediaModaMediaGeo.js"></script>
+</body>
+</html>
