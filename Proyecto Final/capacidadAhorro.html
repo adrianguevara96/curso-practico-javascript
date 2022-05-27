@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcula tu capacidad de ahorro</title>
+    <style>
+
+        body{
+            margin: 0;
+        }
+
+        fieldset, hr {
+            border-color: #cb5757;
+        }
+
+        hr {
+            background-color: #cb5757bc;
+
+        }
+
+        section {
+            display: grid;
+            height: 100vh;
+        }
+
+        button {
+            background-color: #cb5757;
+        }
+
+        input {
+            background-color: #cb5757bc;
+        }
+        
+        input::placeholder {
+            color: rgba(255, 250, 250, 0.608);
+
+        }
+
+        button, input {
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            border: 2px solid #b11818 !important;
+        }
+        
+        input:focus-visible {
+            background-color: #cb5757bc;
+            outline: none;
+            color: black;
+        }
+
+        .container{
+            display: grid;
+            gap: 26px;
+            place-content: center;
+            justify-items: center;
+            background-image: url(./grabowska.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container .container2 .container2Body{
+            width: 100%;
+            display: flex;
+        }
+
+        .container .container2 .container2Body label {
+            width: 40%;
+            text-align: center;
+        }
+        .container .container2 .container2Body input {
+            width: 30%;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .container .container2 .container2Body button{
+            width: 30%;
+        }
+
+        .container .sub-container{
+            /* display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            min-width: 400px;
+            max-width: 400px; */
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .container .sub-container input{
+            margin: 3px 5px;
+        }
+
+        .container .alert{
+            margin: 10px 0px;
+        }
+
+        .buttons {
+            min-width: 400px;
+            max-width: 400px;
+        }
+
+        .buttons .operations {
+            text-align: center;
+        }
+
+        .operations {
+            text-align: center;
+        }
+
+        .container2{
+            border: 4px solid #cb5757;
+            background-color: #cb5757bc;
+            border-radius: 10px;
+            height: 450px;
+            width: 400px;
+            padding: 10px;
+            display: grid;
+            align-content: center;
+            justify-items: center;
+            justify-content: center;
+        }
+
+        .back {
+            position: absolute;
+            width: 400px;
+            text-align: end;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="container2">
+                <div id="backDiv" class="back">
+                    <button onclick="backHome()">X</button>
+                </div>
+                <div id="optionsDiv" class="options">
+                    <h3>Seleccione una opcion</h3>
+                    <button style="width: 100%" onclick="selectOption('capAhorro')">Capacidad de Ahorro</button><br>
+                    <hr>
+                    <button style="width: 100%" onclick="selectOption('intSC')" disabled>Interes Simple y Compuesto</button>
+                </div>
+                <div id="container2BodyDiv" class="container2Body">
+                    <label id="container2BodyLabel" for="list">Cantidad de números</label>
+                    <input id="list" type="number">
+                    <button onclick="createArray(list.value)">Generar</button>
+                </div>
+    
+                <div id="sub-containerDiv" class="sub-container">
+                </div>
+    
+                <div id="alertDiv" class="alert">
+                    <label id="alert"></label><br>
+                </div>
+                <div id="buttonsDiv" lass="buttons">
+                    <fieldset>
+                        <legend id="legend">Operaciones</legend>
+                        <label id="result"></label> 
+                        <div class="operations">
+                            <button id="ahorroSC">-</button>
+                            <button id="capAhorro" onclick="calcCapacidadAhorro()">Capacidad de Ahorro</button>
+                        </div>
+                    </fieldset>
+    
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+    <script src="./capacidadAhorro.js"></script>
+</body>
+</html>
