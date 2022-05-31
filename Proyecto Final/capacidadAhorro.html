@@ -11,6 +11,10 @@
             margin: 0;
         }
 
+        h3 {
+            margin-top: 0;
+        }
+
         fieldset, hr {
             border-color: #cb5757;
         }
@@ -66,6 +70,10 @@
             display: flex;
         }
 
+        .container2Body {
+            margin-top: 40px;
+        }
+
         .container .container2 .container2Body label {
             width: 40%;
             text-align: center;
@@ -113,7 +121,7 @@
             border: 4px solid #cb5757;
             background-color: #cb5757bc;
             border-radius: 10px;
-            height: 450px;
+            /* height: 450px; */
             width: 400px;
             padding: 10px;
             display: grid;
@@ -126,6 +134,22 @@
             position: absolute;
             width: 400px;
             text-align: end;
+        }
+
+
+        @media screen and (max-width: 650px) {
+            .container2 {
+                width: 300px;
+                height: initial;
+            }
+
+            .back{
+                width: 300px;
+            }
+
+            .container2Body{
+                margin-top: 40px;
+            }
         }
     </style>
 </head>

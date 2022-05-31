@@ -31,6 +31,7 @@
             background-position: center center;
             background-size: cover;
             opacity: 0.8; */
+            margin: 0;
         }
 
         section {
@@ -315,6 +316,105 @@
                 width: var(--unmedio);
             }
         }
+
+        nav {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.555);
+            height: 60px;
+        }
+
+        ol {
+            display: flex;
+            align-items: center;
+            padding: 0;
+        }
+
+        ol:nth-child(1){
+            justify-content: flex-start;
+            width: 50%;
+            margin: 0;
+        }
+
+        ol:nth-child(2){
+            justify-content: flex-end;
+            width: 50%;
+        }
+
+        li {
+            list-style: none;
+            margin: 0 10px;
+            padding: 5px 5px;
+            background-color: lightgray;
+            border-radius: 5px;
+        }
+
+        li:hover{
+            background-color: black;
+            color: white;
+        }
+
+        li:hover a{
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo{
+            width: 120px;
+            max-height: 46px;
+        }
+
+        footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.555);
+            height: 20px;
+            text-align: right;
+        }
+
+        footer span {
+            margin: 0 20px 0px 0;
+            color: white;
+        }
+
+        ol img:nth-child(2){
+            display: none;
+        }
+
+        .nav{
+            display: initial;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 600px){
+            ol img:nth-child(1){
+                display: none;
+            }
+
+            ol img:nth-child(2){
+                display: initial;
+            }
+
+            ol {
+                width: initial !important;
+            }
+
+            .logo{
+                width: 46px;
+                max-height: 46px;
+                background-color: transparent;
+                margin-left: 5px;
+            }
+
+            li {
+                margin: 0 5px;
+                text-align: center;
+            }
+        }
         
         @media screen and (max-width: 650px){
 
@@ -341,10 +441,15 @@
 
             .containerPrincipal section {
                 height: 400px;
+                margin-bottom: 10px;
             }
 
             .inputs-cuadrado .lados, .inputs-triangulo .lados, .inputs-triangulo .base, .inputs-triangulo .altura, .inputs-circulo .radio {
                 justify-content: center;
+            }
+
+            footer {
+                bottom: initial;
             }
         }
 
@@ -352,6 +457,31 @@
 </head>
 <body>
     <header>
+        <section class="nav">
+            <nav>
+                <ol>
+                    <img class="logo" src="https://static.platzi.com/static/images/footer/logo.png" alt="">
+                    <img class="logo" src="https://static.platzi.com/media/achievements/platzi-bd.png" alt="">
+                </ol>
+                <ol>
+                    <li>
+                        <a href="./figuras.html">Taller #1</a>
+                    </li>
+                    <li>
+                        <a href="../Taller 2 - Porcentajes y Descuentos/descuentos.html">Taller #2</a>
+                    </li>
+                    <li>
+                        <a href="../Taller 3 - Promedio, moda y mediana/promMediaModaMediaGeo.html">Taller #3</a>
+                    </li>
+                    <li>
+                        <a href="../Taller 4 - Diferencia Salarial/salario.html">Taller #4</a>
+                    </li>
+                    <li>
+                        <a href="../Proyecto Final/capacidadAhorro.html">Taller Final</a>
+                    </li>
+                </ol>
+            </nav>
+        </section>
         <h1>Figuras Geométricas</h1>
         <p>Primer taller del Curso Práctico de Javascript</p>
     </header>
@@ -484,7 +614,11 @@
         </form>
     </section>
 
+
     </div>
+    <footer>
+        <span>Desarrollado por Adrian Guevara</span> 
+    </footer>
 
 
 

@@ -93,6 +93,79 @@
             background-blend-mode: soft-light,screen;
         }
 
+        nav {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.555);
+            height: 60px;
+        }
+
+        ol {
+            display: flex;
+            align-items: center;
+            padding: 0;
+        }
+
+        ol:nth-child(1){
+            justify-content: flex-start;
+            width: 50%;
+            margin: 0;
+        }
+
+        ol:nth-child(2){
+            justify-content: flex-end;
+            width: 50%;
+        }
+
+        li {
+            list-style: none;
+            margin: 0 10px;
+            padding: 5px 5px;
+            background-color: lightgray;
+            border-radius: 5px;
+        }
+
+        li:hover{
+            background-color: black;
+            color: white;
+        }
+
+        li:hover a{
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo{
+            width: 120px;
+            max-height: 46px;
+        }
+
+        footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.555);
+            height: 20px;
+            text-align: right;
+        }
+
+        footer span {
+            margin: 0 20px 0px 0;
+            color: white;
+        }
+
+        ol img:nth-child(2){
+            display: none;
+        }
+
+        .nav{
+            display: initial;
+            width: 100%;
+        }
+
         @media screen and (max-width: 800px){
             #form {
                 margin: 20px;
@@ -100,6 +173,32 @@
 
             .sub-container {
                 grid-template-columns: 50% 50%;
+            }
+        }
+
+        @media screen and (max-width: 600px){
+            ol img:nth-child(1){
+                display: none;
+            }
+
+            ol img:nth-child(2){
+                display: initial;
+            }
+
+            ol {
+                width: initial !important;
+            }
+
+            .logo{
+                width: 46px;
+                max-height: 46px;
+                background-color: transparent;
+                margin-left: 5px;
+            }
+
+            li {
+                margin: 0 5px;
+                text-align: center;
             }
         }
 
@@ -151,6 +250,7 @@
                 </fieldset>
             </form>
         </div>
+        
     </section>
     <script src="./descuentos.js"></script>
 </body>
